@@ -1,0 +1,14 @@
+---
+- name: Boot from xe-serial
+  command: sed -i -e 's/^default xe$/&-serial/g' /boot/extlinux.conf
+
+- name: Disable citrix yum repository
+  command: sed -i -e 's/enabled=./enabled=0/g' /etc/yum.repos.d/Citrix.repo
+
+- name: Set the sexier default16x8 console font
+  command: sed -i -e 's/drdos8x8/default8x16/' /etc/sysconfig/i18n
+
+- name: Install much needed RHEL components
+  yum: name={{ item }} state=present
+  with_items:
+    - vim-enhanced

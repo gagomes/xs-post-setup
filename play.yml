@@ -1,0 +1,6 @@
+---
+- hosts: xenhosts
+  sudo: yes
+  remote_user: root
+  roles:
+    - swag
