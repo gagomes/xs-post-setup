@@ -12,3 +12,4 @@
   yum: name={{ item }} enablerepo=base state=present
   with_items:
     - vim-enhanced
+    - lsof
